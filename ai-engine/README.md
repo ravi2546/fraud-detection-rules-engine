@@ -1,3 +1,18 @@
+# Fraud Prevention AI Engine (Rule-based POC)
+
+This is a proof-of-concept (PoC) for a rule-based fraud detection engine. 
+It demonstrates how multiple independent agents (behavioral, geo, device) combine to assess transaction risk and make automated BLOCK / ALLOW decisions.
+
+Tech stack & versions
+
+## Tech Stack
+
+- Python 3.14  
+- FastAPI 0.101.0  
+- Uvicorn 0.23.3  
+- Pydantic 2.2.0  
+- Requests 2.32.0 (optional, for integration/testing)
+
 🟢 PART 1 — RUN THE SYSTEM (Step by Step)
 1️⃣ Start AI Engine (Python)
 📂 Go to AI engine
@@ -92,8 +107,23 @@ device = NEW_DEVICE   → 0.9
 (0.6 + 0.1 + 0.9) / 3 = 0.53
 ALLOWED
 
-Our system blocks transactions only when multiple independent agents agree the risk is high. No single signal is allowed to dominate.
+💡 Future Enhancements:
 
-This PoC demonstrates an agentic fraud decision architecture.
-Today, agents use deterministic logic.
-Tomorrow, the same agents can be powered by ML or LLMs without redesign.
+- Replace deterministic rules with ML/LLM-powered agents
+- Use historical transaction data to train predictive models
+- Add real-time learning for adaptive risk scoring
+
+## Project Structure
+
+fraud-prevention-ai/
+├── ai-engine/          # Python FastAPI engine
+│   ├── main.py
+│   ├── behavioral_agent.py
+│   ├── geo_agent.py
+│   ├── device_agent.py
+│   ├── decision_agent.py   # Aggregates all agent scores and makes final decision
+│   ├── orchestrator.py
+│   ├── state.py
+│   └── venv/
+└── java-backend/       # Placeholder for future Java services
+
