@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+*.env
+
+# Java / Maven
+target/
+*.log
+*.class
+*.jar
+*.iml
+
+# VS Code
+.vscode/
